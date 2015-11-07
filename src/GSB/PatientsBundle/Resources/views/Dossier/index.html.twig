@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Liste des dossiers</h1>
+<hr>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dateentree</th>
+                <th>Motifadmission</th>
+                <th>Datesortie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+               <td class= "center space"><a href="{{ path('dossier_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td class= "center space">{% if entity.dateentree %}{{ entity.dateentree|date('Y-m-d H:i:s') }}{% endif %}</td>
+               <td class= "center space">{{ entity.motifadmission }}</td>
+               <td class= "center space">{% if entity.datesortie %}{{ entity.datesortie|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('dossier_show', { 'id': entity.id }) }}">Montrer</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('dossier_edit', { 'id': entity.id }) }}">Mise à jour</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('dossier_new') }}">
+                Créer un nouveau dossier
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Origine</h1>
+
+    <table class="record_properties">
+        <tr>
+            <th class="space">Id:</td>
+            <td class="center">
+                {{ entity.id }}
+            </td>
+        </tr>
+        <tr>
+            <th class="space">Libelle:</th>
+            <td class="center">
+                {{ entity.libelleorigine }}
+            </td>
+        </tr>
+    </table>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('origine') }}">Retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('origine_edit', { 'id': entity.id }) }}">Mettre à jour </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+{% endblock %}

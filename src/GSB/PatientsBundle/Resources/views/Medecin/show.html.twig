@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Information sur un Médecin</h1>
+<hr>
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                    <td class= "center space">{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomm : </th>
+                    <td class= "center space">{{ entity.nommedecin }}</td>
+            </tr>
+            <tr>
+                <th>Prénom : </th>
+                   <td class= "center space">{{ entity.prenommedecin }}</td>
+            </tr>
+            <tr>
+                <th>Rue : </th>
+                    <td class= "center space">{{ entity.ruemedecin }}</td>
+            </tr>
+            <tr>
+                <th>Ville : </th>
+                    <td class= "center space">{{ entity.villemedecin }}</td>
+            </tr>
+            <tr>
+                <th>Code postal :  </th>
+                    <td class= "center space">{{ entity.codepostalmedecin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('medecin') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('medecin_edit', { 'id': entity.id }) }}">
+            Mettre à jour
+        </a>
+    </li>
+        {{ form(delete_form) }}
+</ul>
+{% endblock %}

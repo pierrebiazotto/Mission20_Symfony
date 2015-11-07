@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Détails dossier</h1>
+<hr>
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td class= "center space">{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Date entrée</th>
+                <td class= "center space">{{ entity.dateentree|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Motif admission</th>
+                 <td class= "center space">{{ entity.motifadmission }}</td>
+            </tr>
+            <tr>
+                <th>Date sortie</th>
+                 <td class= "center space">{{ entity.datesortie|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('dossier') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('dossier_edit', { 'id': entity.id }) }}">
+            Mise à jour 
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

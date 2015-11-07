@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Liste d'assuré</h1>
+<hr>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('assure_new') }}">
+                Créer un nouvel assuré
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

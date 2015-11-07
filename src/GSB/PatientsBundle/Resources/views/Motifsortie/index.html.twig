@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Liste des Motif de sortie </h1>
+<hr>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle du motif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+               <td class= "center space"><a href="{{ path('motifsortie_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.libellemotif }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('motifsortie_show', { 'id': entity.id }) }}">Montrer</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('motifsortie_edit', { 'id': entity.id }) }}">Mise à jour</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('motifsortie_new') }}">
+                Créer un nouveau motif de sortie
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

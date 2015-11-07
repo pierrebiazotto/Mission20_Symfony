@@ -1,0 +1,63 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: "GSBPatientsBundle:Default:index" }
+    
+GSBPatientsBundle_assure:
+        resource: "@GSBPatientsBundle/Resources/config/routing/assure.xml"
+        prefix:   /assure
+        
+GSBPatientsBundle_caisse:
+        resource: "@GSBPatientsBundle/Resources/config/routing/caisse.xml"
+        prefix:   /caisse
+        
+GSBPatientsBundle_demandeentente:
+        resource: "@GSBPatientsBundle/Resources/config/routing/demandeentente.xml"
+        prefix:   /demandeentente
+        
+GSBPatientsBundle_dossier:
+        resource: "@GSBPatientsBundle/Resources/config/routing/dossier.xml"
+        prefix:   /dossier
+        
+GSBPatientsBundle_lettrecle:
+        resource: "@GSBPatientsBundle/Resources/config/routing/lettrecle.xml"
+        prefix:   /lettrecle
+
+GSBPatientsBundle_medecin:
+        resource: "@GSBPatientsBundle/Resources/config/routing/medecin.xml"
+        prefix:   /medecin
+        
+GSBPatientsBundle_motifsortie:
+        resource: "@GSBPatientsBundle/Resources/config/routing/motifsortie.xml"
+        prefix:   /motifsortie
+        
+GSBPatientsBundle_origine:
+        resource: "@GSBPatientsBundle/Resources/config/routing/origine.xml"
+        prefix:   /origine
+        
+GSBPatientsBundle_patient:
+        resource: "@GSBPatientsBundle/Resources/config/routing/patient.xml"
+        prefix:   /patient
+        
+GSBPatientsBundle_personne:
+        resource: "@GSBPatientsBundle/Resources/config/routing/personne.xml"
+        prefix:   /personne
+        
+GSBPatientsBundle_soin:
+        resource: "@GSBPatientsBundle/Resources/config/routing/soin.xml"
+        prefix:   /soin
+        
+GSBPatientsBundle_soinbase:
+        resource: "@GSBPatientsBundle/Resources/config/routing/soinbase.xml"
+        prefix:   /soinbase
+        
+GSBPatientsBundle_sointechnique:
+        resource: "@GSBPatientsBundle/Resources/config/routing/sointechnique.xml"
+        prefix:   /sointechnique
+
+gsb_patients_ajoutPatient:
+    pattern:  /patient/ajout
+    defaults: { _controller: GSBPatientsBundle:Patient:ajout }
+
+gsb_user_fosuser:
+    resource: "@GSBPatientsBundle/Resources/config/routing/fosuser.yml"
+    prefix:   /fosuser

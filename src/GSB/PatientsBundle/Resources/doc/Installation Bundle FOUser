@@ -1,0 +1,79 @@
+http://fr.openclassrooms.com/informatique/cours/developpez-votre-site-web-avec-le-framework-symfony2/utiliser-fosuserbundle
+https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/index.md
+
+============================================
+
+Dans composer.json
+  "require": {
+    // …
+    "friendsofsymfony/user-bundle": "dev-master"
+  }
+
+Lancer les commandes
+    composer update symfony/icu
+    composer update friendsofsymfony/user-bundle
+
+=======================================
+// app/AppKernel.php
+
+public function registerBundles()
+{
+  $bundles = array(
+    // …
+    new FOS\UserBundle\FOSUserBundle(),
+  );
+}
+
+============================
+dans app/config/config.yml
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: GSB\PatientsBundle\Entity\User
+
+La classe à mapper se trouve dans 
+    vendor/.../Resources/doctrine/User.orm.xml
+
+Le mappage se fait automatiquement
+
+===============================
+Ajouter la classe User dans GSB/PatientBundle
+
+
+===============================
+Sécurité : dans security.yml
+
+encoders:
+        GSB\PatientsBundle\Entity\User: sha512
+
+main:
+    id: fos_user.user_provider.username
+
+===============================
+routes
+J'ai rajouté les routes dans routing.yml du bundle
+
+gsb_user_fosuser:
+    resource: "@GSBPatientsBundle/Resources/config/routing/fosuser.yml"
+    prefix:   /fosuser
+
+Les règles de routage sont dans le répertoire routing
+
+===============================
+Intégration côté vue
+
+En fait, l'intégration se fait via le fichier layout.html.twig dans le répertoire view du bundle Patient
+J'ai créé le fichier, j'y ai inséré les champs courants.
+Ce template hérite du template index.html.twig qui se trouve dans app/Resources/view
+
+Pour le message de départ 
+dans app/config.yml
+
+framework:
+    translator:      { fallback: %locale% }
+
+dans parameters
+locale: fr
+
+Il est ensuite possible de modifier les routes dans, par exemple, le firewall (security.yml).
+

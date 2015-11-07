@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Détail Motif Sortie</h1>
+<hr>
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+               <td class= "center space">{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle motif</th>
+               <td class= "center space">{{ entity.libellemotif }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('motifsortie') }}">
+           Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('motifsortie_edit', { 'id': entity.id }) }}">
+            Mise à jour
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

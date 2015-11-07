@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Mise à jour d'un Médecin</h1>
+<hr>
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('medecin') }}">
+           Retour à la liste
+        </a>
+    </li>
+    {{ form(delete_form) }}
+</ul>
+{% endblock %}

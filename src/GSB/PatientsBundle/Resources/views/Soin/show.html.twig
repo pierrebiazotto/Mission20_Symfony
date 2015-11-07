@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Soin</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codesoin </th>
+                <td> {{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Libellesoin </th>
+                <td> {{ entity.libellesoin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('soin') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

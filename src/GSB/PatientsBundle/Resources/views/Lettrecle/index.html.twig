@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Liste des lettre-clés</h1>
+<hr>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libellé</th>
+                <th>Tarif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td class="center space"><a href="{{ path('lettrecle_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td class="center space">{{ entity.libellelettrecle }}</td>
+                <td class="center space">{{ entity.tarif }}</td>
+                <ul>
+                    <TD>
+                    <li>
+                        <a href="{{ path('lettrecle_show', { 'id': entity.id }) }}">Voir</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('lettrecle_edit', { 'id': entity.id }) }}">Modifier</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('lettrecle_new') }}">
+                Ajouter une lettre-clé
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

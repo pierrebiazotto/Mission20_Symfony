@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Recherche d'une personne</h1>
+<hr>
+    {{ form(recherche_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('personne') }}">
+            Retour à la liste
+        </a>
+    </li>
+
+</ul>
+{% endblock %}

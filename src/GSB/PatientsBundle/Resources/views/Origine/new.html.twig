@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Création d'une Origine</h1>
+
+    {{ form(form) }}
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('origine') }}">Retour à la liste</a>
+        </li>
+    </ul>
+{% endblock %}

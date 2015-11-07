@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Patient</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Ruepatient</th>
+                <td>{{ entity.ruepatient }}</td>
+            </tr>
+            <tr>
+                <th>Villepatient</th>
+                <td>{{ entity.villepatient }}</td>
+            </tr>
+            <tr>
+                <th>Codepostalpatient</th>
+                <td>{{ entity.codepostalpatient }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ entity.datenaissance|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('patient') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('patient_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,3 @@
+gsb_patients:
+    resource: "@GSBPatientsBundle/Resources/config/routing.yml"
+    prefix:   /

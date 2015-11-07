@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Détail d'une caisse</h1>
+<hr>
+    <table class="record_properties">
+        <thead>
+            <tr>
+                <th>Id</th>
+                   <td class= "center space">{{ entity.id }}</td>
+             
+            </tr>
+            <tr>
+                <th>Nom caisse</th>
+                    <td class= "center space">{{ entity.nomcaisse }}</td>
+            </tr>
+            <tr>
+                <th>Rue</th>
+                   <td class= "center space">{{ entity.ruecaisse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                   <td class= "center space">{{ entity.villecaisse }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                   <td class= "center space">{{ entity.codepostalcaisse }}</td>
+            </tr>
+        </thead>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('caisse') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('caisse_edit', { 'id': entity.id }) }}">
+            Mettre à jour 
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

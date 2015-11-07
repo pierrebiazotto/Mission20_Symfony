@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Soin list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codesoin</th>
+                <th>Libellesoin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('soin_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.libellesoin }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('soin_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

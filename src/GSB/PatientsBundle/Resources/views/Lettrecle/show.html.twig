@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Détails de la lettre-clé</h1>
+<hr>
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td class="center space">{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Libellé</th>
+                <td class="center space">{{ entity.libellelettrecle }}</td>
+            </tr>
+            <tr>
+                <th>Tarif</th>
+                <td class="center space">{{ entity.tarif }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('lettrecle') }}">
+            Retour
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('lettrecle_edit', { 'id': entity.id }) }}">
+            Modifier
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

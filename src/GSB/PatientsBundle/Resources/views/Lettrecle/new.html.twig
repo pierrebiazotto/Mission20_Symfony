@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Nouvelle lettre-clé</h1>
+<hr>
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('lettrecle') }}">
+            Retour
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Demande d'entente</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Date de demande</th>
+                <td>{{ entity.datedemande }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ entity.datefin }}</td>
+            </tr>
+            <tr>
+                <th>Réponse</th>
+                <td>{{ entity.reponse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('demandeentente') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('demandeentente_edit', { 'id': entity.numdossier }) }}">
+            Editer
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

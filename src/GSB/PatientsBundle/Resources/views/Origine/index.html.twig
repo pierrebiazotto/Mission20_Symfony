@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Liste des Origines</h1>
+
+    <table class="records_list">
+        <thead>
+            <hr>
+                <tr>
+                    <th>Id</th>
+                    <th>Libelle</th>
+                    <th>Actions</th>
+                </tr>
+            </hr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td class="center space">
+                    <a href="{{ path('origine_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
+                </td>
+                <td class="center">
+                    {{ entity.libelleorigine }}
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('origine_show', { 'id': entity.id }) }}">Afficher</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('origine_edit', { 'id': entity.id }) }}">Mettre à jour</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <ul>
+        <li>
+            <a href="{{ path('origine_new') }}">Créer une nouvelle origine</a>
+        </li>
+    </ul>
+{% endblock %}

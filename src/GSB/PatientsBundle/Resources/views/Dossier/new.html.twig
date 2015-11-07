@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Créer nouveau dossier</h1>
+<hr>
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('dossier') }}">
+            Retour à la liste
+        </a>
+    </li>
+</ul>
+{% endblock %}

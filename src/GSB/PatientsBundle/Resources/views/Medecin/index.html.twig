@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Liste des Médecins</h1>
+
+    <table class="records_list">
+       <hr> <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Rue</th>
+                <th>Ville</th>
+                <th>Codepostal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('medecin_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                   <td class= "center space">{{ entity.nommedecin }}</td>
+                    <td class= "center space">{{ entity.prenommedecin }}</td>
+                   <td class= "center space">{{ entity.ruemedecin }}</td>
+                  <td class= "center space">{{ entity.villemedecin }}</td>
+                    <td class= "center space">{{ entity.codepostalmedecin }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('medecin_show', { 'id': entity.id }) }}">Montrer</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('medecin_edit', { 'id': entity.id }) }}">Mettre à jour</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('medecin_new') }}">
+                Ajouter un nouveau médecin
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

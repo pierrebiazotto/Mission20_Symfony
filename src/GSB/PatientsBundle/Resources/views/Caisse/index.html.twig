@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>Liste des caisses</h1>
+       
+
+    <table class="records_list" >
+     <thead>
+           <hr> <tr>
+                <th>Id</th>
+                
+                <th>Nom caisse</th>
+                
+                <th>Rue</th>
+               
+                <th>Ville</th>
+               
+                <th>Code postal</th>
+               
+                <th>Actions</th>
+            </tr>
+            </hr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+             <tr>
+                <td><a href="{{ path('caisse_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td class= "center space">{{ entity.nomcaisse }}</td>
+              
+                   <td class= "center space">{{ entity.ruecaisse }}</td>
+              
+                    <td class= "center space">{{ entity.villecaisse }}</td>
+              
+                   <td class= "center space">{{ entity.codepostalcaisse }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('caisse_show', { 'id': entity.id }) }}">Montrer</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('caisse_edit', { 'id': entity.id }) }}">Mettre à jour </a>
+                    </li>
+                </ul>
+                </td>
+            </tr>    
+        {% endfor %}
+        </tbody>
+    </table>
+           
+
+        <ul>
+        <li>
+            <a href="{{ path('caisse_new') }}">
+                Créer une nouvelle caisse
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
