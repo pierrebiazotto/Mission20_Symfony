@@ -14,7 +14,27 @@ use GSB\PatientsBundle\Form\MotifsortieType;
  */
 class MotifsortieController extends Controller
 {
+    public function verification(Request $request)
 
+  {
+
+    // On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
+
+    if (!$this->get('security.context')->isGranted('ROLE_MEDECIN')) {
+
+      // Sinon on déclenche une exception « Accès interdit »
+
+      throw new AccessDeniedException('Accès limité aux Médecins.');
+
+    }
+
+
+    // Ici l'utilisateur a les droits suffisant,
+
+    // on peut ajouter une annonce
+
+  }
+    
     /**
      * Lists all Motifsortie entities.
      *
