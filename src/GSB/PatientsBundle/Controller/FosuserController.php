@@ -62,7 +62,7 @@ class FosuserController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(Fosuser $entity)
+    private function createUserForm(Fosuser $entity)
     {
         $form = $this->createForm(new FosuserType(), $entity, array(
             'action' => $this->generateUrl('fosuser_create'),
