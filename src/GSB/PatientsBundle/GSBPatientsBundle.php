@@ -6,8 +6,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class GSBPatientsBundle extends Bundle
 {
-  public function getParent()
-  {
-    return 'FOSUserBundle';
-  }
+    public function getParent(){
+        return 'FOSUserBundle';
+    }
 }

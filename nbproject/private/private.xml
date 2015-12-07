@@ -3,6 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/app/Resources/views/index.html225.twig</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/app/Resources/views/base.html.twig</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/src/GSB/PatientsBundle/Resources/public/css/style.css</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/layout.html.twig</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/config/routing/demandeentente.xml</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/app/Resources/views/base.html.twig</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Form/DemandeententeType.php</file>

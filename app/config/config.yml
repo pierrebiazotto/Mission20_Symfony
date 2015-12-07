@@ -70,3 +70,13 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: GSB\PatientsBundle\Entity\User
+    registration:
+        form:
+            type: GSB_user_registration
+  
+services:
+   veb_user_registration:
+      class: GSB\PatientsBundle\Form\UserType
+      arguments: [%fos_user.model.user.class%]
+      tags:
+         -  { name: form.type }
