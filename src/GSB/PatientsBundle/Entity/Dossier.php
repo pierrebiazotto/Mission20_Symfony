@@ -263,6 +263,17 @@ class Dossier
     {
         return $this->numpersonnepatient;
     }
+    
+    /**
+     * Get patient
+     *
+     * @return \GSB\PatientsBundle\Entity\Patient 
+     */
+    public function getPatient()
+    {
+        return $this->numpersonnepatient;
+    }
+
 
     /**
      * Set numpersonneassure
