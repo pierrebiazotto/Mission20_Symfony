@@ -2,15 +2,16 @@
 
 {% block body -%}
     <h1>Editer les demande d'entente</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
+    <ul>
     <li>
-        <a href="{{ path('demandeentente') }}">
-            Retour à la liste
-        </a>
+    {{ form(edit_form) }}
     </li>
+        <ul class="record_actions">
+            <li>
+                <form action="{{ path('demandeentente')}}" method="post">
+                <input type="submit" value="Retour à la liste" />
+                </form>
+            </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}
