@@ -3,8 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/parameters.yml.dist</file>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/edit.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/parameters.yml</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/delete.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/index.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Controller/PersonneController.php</file>
+=======
+=======
+>>>>>>> 0cbe63d213fa4fe2413c035571a25bc48357283d
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/app/Resources/views/index.html225.twig</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/app/Resources/views/base.html.twig</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/src/GSB/PatientsBundle/Resources/public/css/style.css</file>
+            <file>file:/home/tniel/public_html/Mission20/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/layout.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/config/routing/demandeentente.xml</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/app/Resources/views/base.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Form/DemandeententeType.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/app/Resources/views/index.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Demandeentente/new.html.twig</file>
+<<<<<<< HEAD
+>>>>>>> origin/Patients-Symfony-1.0.0
+=======
+>>>>>>> 0cbe63d213fa4fe2413c035571a25bc48357283d
         </group>
     </open-files>
 </project-private>
