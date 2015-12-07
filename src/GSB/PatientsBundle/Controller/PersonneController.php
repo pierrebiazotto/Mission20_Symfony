@@ -126,7 +126,6 @@ class PersonneController extends Controller {
                     'onglet' => 'undefined',
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -149,9 +148,9 @@ class PersonneController extends Controller {
     }
 
     /**
-     * Edits an existing Personne entity.
-     *
-     */
+    * Edits an existing Personne entity.
+    *
+    */
     public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
@@ -178,46 +177,41 @@ class PersonneController extends Controller {
                     'delete_form' => $deleteForm->createView(),
         ));
     }
+    
 
     /**
-     * Deletes a Personne entity.
-     *
-     */
+    * Deletes a Personne entity.
+    */
     public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('GSBPatientsBundle:Personne')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Personne entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('GSBPatientsBundle:Personne')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Personne entity.');
         }
+        $em->remove($entity);
+        $em->flush();
 
         return $this->redirect($this->generateUrl('personne'));
     }
-
+    
     /**
-     * Creates a form to delete a Personne entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
+    * Creates a form to delete a Personne entity by id.
+    *
+    * @param mixed $id The entity id
+    *
+    * @return \Symfony\Component\Form\Form The form
+    */
     private function createDeleteForm($id) {
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl('personne_delete', array('id' => $id)))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
-                        ->getForm()
-        ;
+                        ->getForm();  
     }
-
+    
+     
     /**
      * Crée le formulaire de recherche d'une personne.
      *
