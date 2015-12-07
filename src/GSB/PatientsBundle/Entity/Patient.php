@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="Patient")
  * @ORM\Entity
  */
-class Patient extends Personne
+class Patient 
 {
     /**
      * @var string
