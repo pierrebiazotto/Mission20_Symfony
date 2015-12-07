@@ -1,10 +1,10 @@
 parameters:
     database_driver:   pdo_mysql
-    database_host:     192.168.220.153
+    database_host:     localhost
     database_port:     ~
-    database_name:     GSB_Patients
+    database_name:     _OnCasseTout
     database_user:     root
-    database_password: toto01$1415
+    database_password: gsb$generique,1234
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
