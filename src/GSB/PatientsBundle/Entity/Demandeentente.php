@@ -12,13 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Demandeentente
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
-    
+
     /**
      * @var \varchar
      *
      * @ORM\Column(name="dateDemande", type="string", nullable=false)
-     * @ORM\Id
+     * 
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $datedemande;
@@ -40,8 +48,6 @@ class Demandeentente
     /**
      * @var \Dossier
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Dossier")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="numDossier", referencedColumnName="id")
@@ -49,7 +55,36 @@ class Demandeentente
      */
     private $numdossier;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->numdossier = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Set id 
+     *
+     * @return Demandeentente
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     /**
      * Set datedemande
@@ -120,6 +155,7 @@ class Demandeentente
         return $this->reponse;
     }
 
+    
     /**
      * Set numdossier
      *
@@ -140,8 +176,9 @@ class Demandeentente
      */
     public function getNumdossier()
     {
-        return $this->numdossier->getId();
+        return $this->numdossier;
     }
+    
     
     public function __toString() {
         return '';

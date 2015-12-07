@@ -3,24 +3,28 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:       [ROLE_MEDECIN, ROLE_SECRETAIRE]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         in_memory:
             memory:
                 users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    medecin: { password: medecinpass, roles: [ 'ROLE_MEDECIN'] }
+                    secretaire: { password: secretairepass, roles: [ 'ROLE_SECRETAIRE'] }
+                    #user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
                     
         main:
             id: fos_user.user_provider.username
+            
 
     firewalls:
+        
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
+       
         login:
             pattern:  ^/demo/secured/login$
             security: false
@@ -33,9 +37,6 @@ security:
             logout:
                 path:   _demo_logout
                 target: _demo
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
             
         main:
             pattern:        ^/
@@ -44,6 +45,7 @@ security:
             form_login:
                 login_path: fos_user_security_login
                 check_path: fos_user_security_check
+                default_target_path: /index
             logout:
                 path:       fos_user_security_logout
                 target:     /

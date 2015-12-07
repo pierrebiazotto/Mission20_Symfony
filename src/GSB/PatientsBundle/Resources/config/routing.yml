@@ -1,7 +1,11 @@
 homepage:
     pattern:  /
-    defaults: { _controller: "GSBPatientsBundle:Default:index" }
+    defaults: { _controller: FOSUserBundle:Security:login }
     
+connecte:
+    pattern:  /index
+    defaults: { _controller: GSBPatientsBundle:Default:indexconnecte }
+
 GSBPatientsBundle_assure:
         resource: "@GSBPatientsBundle/Resources/config/routing/assure.xml"
         prefix:   /assure

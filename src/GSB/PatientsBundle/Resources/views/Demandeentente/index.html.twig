@@ -5,26 +5,30 @@
 
     <table class="records_list">
         <thead>
-            <tr>
+        <hr><tr>
                 <th>Date de demande</th>
-                <th>Date de dfin</th>
+                
+                <th>Date de fin</th>
+                
                 <th>Réponse</th>
+                
                 <th>Actions</th>
-            </tr>
+                
+        </tr></hr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('demandeentente_show', { 'id': entity.numdossier }) }}">{{ entity.datedemande }}</a></td>
-                <td>{% if entity.datefin %}{{ entity.datefin }}{% endif %}</td>
-                <td>{{ entity.reponse }}</td>
+                <td><a href="{{ path('demandeentente_show', { 'id': entity.id }) }}">{{ entity.datedemande }}</a></td>
+                <td class = "center space">{% if entity.datefin %}{{ entity.datefin }}{% endif %}</td>
+                <td class = "center space">{{ entity.reponse }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('demandeentente_show', { 'id': entity.numdossier }) }}">Montrer</a>
+                        <a href="{{ path('demandeentente_show', { 'id': entity.id }) }}">Montrer</a>
                     </li>
                     <li>
-                        <a href="{{ path('demandeentente_edit', { 'id': entity.numdossier }) }}">Mettre à jour</a>
+                        <a href="{{ path('demandeentente_edit', { 'id': entity.id }) }}">Mettre à jour</a>
                     </li>
                 </ul>
                 </td>
