@@ -61,6 +61,7 @@ class Demandeentente
     public function __construct()
     {
         $this->numdossier = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->id = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     

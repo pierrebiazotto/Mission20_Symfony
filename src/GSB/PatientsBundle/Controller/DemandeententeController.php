@@ -120,18 +120,18 @@ class DemandeententeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('GSBPatientsBundle:Demandeentente')->find($id);
+        $laDemandeEntente = $em->getRepository('GSBPatientsBundle:Demandeentente')->find($id);
 
-        if (!$entity) {
+        if (!$laDemandeEntente) {
             throw $this->createNotFoundException('Unable to find Demandeentente entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($laDemandeEntente);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('GSBPatientsBundle:Demandeentente:edit.html.twig', array(
             'onglet' => 'undefined',
-            'entity'      => $entity,
+            'entity'      => $laDemandeEntente,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

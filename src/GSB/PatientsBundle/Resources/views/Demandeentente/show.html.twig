@@ -23,20 +23,20 @@
             </tr>
         </tbody>
     </table>
-
+            
     <ul class="record_actions">
-        <li>
+        
             <form action="{{ path('demandeentente')}}" method="post">
             <input type="submit" value="Retour à la liste" />
             </form>
-        </li>
-        <li>
+        <br>
+        
             <form action="{{ path('demandeentente_edit', { 'id': entity.id }) }}" method="post">
             <input type="submit" value="Editer" />
             </form>        
-        </li>
-    <li>
+        <br>
+    
         {{ form(delete_form) }}
-    </li>
-</ul>
+   
+    </ul>
 {% endblock %}

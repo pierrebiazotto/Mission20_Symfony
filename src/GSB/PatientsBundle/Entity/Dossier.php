@@ -126,6 +126,7 @@ class Dossier
     public function __construct()
     {
         $this->codesoin = new \Doctrine\Common\Collections\ArrayCollection();
+        
     }
     
 
@@ -403,6 +404,6 @@ class Dossier
     }
     
     public function __toString() {
-        return '';
+        return " ".$this->id." Patient : ". $this->numpersonnepatient;
     }
 }

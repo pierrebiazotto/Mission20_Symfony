@@ -170,6 +170,6 @@ class Patient
     }
     
     public function __toString() {
-        return '';
+        return 'TO DO';
     }
 }
