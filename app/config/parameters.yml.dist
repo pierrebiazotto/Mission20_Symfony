@@ -2,7 +2,7 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     192.168.220.153
     database_port:     ~
-    database_name:     GSB_Patients
+    database_name:     GSB_Patient
     database_user:     root
     database_password: toto01$1415
 

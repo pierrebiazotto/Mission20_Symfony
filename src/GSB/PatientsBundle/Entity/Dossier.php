@@ -14,9 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Dossier
 {
     /**
-     * @var string
+     * @var id
      *
-     * @ORM\Column(name="id", type="string", length=15, nullable=false)
+     * @ORM\Column(name="id", type="id", length=15, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -264,6 +264,17 @@ class Dossier
     {
         return $this->numpersonnepatient;
     }
+    
+    /**
+     * Get patient
+     *
+     * @return \GSB\PatientsBundle\Entity\Patient 
+     */
+    public function getPatient()
+    {
+        return $this->numpersonnepatient;
+    }
+
 
     /**
      * Set numpersonneassure
@@ -404,6 +415,6 @@ class Dossier
     }
     
     public function __toString() {
-        return " ".$this->id." Patient : ". $this->numpersonnepatient;
+        return $this->id." Patient : ". $this->numpersonnepatient;
     }
 }

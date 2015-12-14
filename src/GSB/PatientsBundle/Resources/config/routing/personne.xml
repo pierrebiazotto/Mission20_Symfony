@@ -32,7 +32,6 @@
 
     <route id="personne_delete" pattern="/{id}/delete">
         <default key="_controller">GSBPatientsBundle:Personne:delete</default>
-        <requirement key="_method">post|delete</requirement>
     </route>
     
     <route id="personne_find" pattern="/find">

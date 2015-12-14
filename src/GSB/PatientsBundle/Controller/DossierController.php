@@ -211,6 +211,62 @@ class DossierController extends Controller
 
         return $this->redirect($this->generateUrl('dossier'));
     }
+    
+    // Création recherche Patients par dossier
+     public function creerRechercheDossierFormAction(Request $request) {
+
+        $form = $this->createFormBuilder()
+                ->add('id', 'text')
+                ->add('recherche', 'submit')
+                ->getForm();
+
+        $form->handleRequest($request);
+
+        // Lorsqu'on n'utilise pas d'objet, les données sont sous forme d'un tableau avec les 
+        // clés correspondant aux différents items du formulaire
+        // exemple : 
+        // $data = $form->getData();
+        // echo $data["name"];
+
+        $d = new Dossier();
+        $e = new Assure();
+        $p = new Patient();
+        $d->setNumpersonneassure($e);
+        $d->setNumpersonnepatient($p);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($d);
+        
+        if ($form->isValid()) {
+            //je récupère ce qui est passé en paramètres de la recherche
+            $data = $form->getData();
+            $valRecherchee = $data["id"];
+
+            $em = $this->getDoctrine()->getManager();
+            
+            //retourner un arraylist de dossiers MAIS on fait une recherche sur une clé donc
+            //on a un arraylist avec un dossier unique
+            $entities = $em->getRepository('GSBPatientsBundle:Dossier')->createQueryBuilder('d')
+                    ->where('d.id = :id')
+                    ->setParameter('id', $valRecherchee)
+                    ->getQuery()
+                    ->getResult();
+            
+            if (!$entities) {
+                throw $this->createNotFoundException('Impossible de trouver le dossier '.$valRecherchee);
+            }
+            
+            $em->flush();
+           
+            $defaultData = array('onglet' => 'Dossier', 'dossier' => $entities[0], 'patient' => $entities[0]->getNumpersonnepatient() );
+            return $this->render('GSBPatientsBundle:Dossier:resultatrecherche.html.twig', $defaultData);
+            
+        }
+
+        return $this->render('GSBPatientsBundle:Dossier:recherche.html.twig', array(
+                    'onglet' => 'dossier',
+                    'recherche_form' => $form->createView()));
+    }
+
 
     /**
      * Creates a form to delete a Dossier entity by id.

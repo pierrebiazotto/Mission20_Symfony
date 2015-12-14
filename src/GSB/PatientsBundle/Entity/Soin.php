@@ -6,11 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Soin
- *
- * @ORM\Table(name="Soin")
+ * 
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"Soin" = "Soin", "Soinbase" = "Soinbase", "Sointechnique" = "Sointechnique" })
  */
-class Soin
+class Soin 
 {
     /**
      * @var integer
@@ -37,10 +39,11 @@ class Soin
      *     @ORM\JoinColumn(name="codeSoin", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="numDossier", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="numDossier", referencedColumnName="id", unique=true)
      *   }
      * )
      */
+    
     private $numdossier;
 
     /**

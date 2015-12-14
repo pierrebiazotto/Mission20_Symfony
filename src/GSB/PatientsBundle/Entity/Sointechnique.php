@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Sointechnique
  *
- * @ORM\Table(name="SoinTechnique")
  * @ORM\Entity
  */
-class Sointechnique
+
+class Sointechnique extends Soin
 {
     /**
      * @var float
@@ -19,19 +19,7 @@ class Sointechnique
      */
     private $coefficientacte;
 
-    /**
-     * @var \Soin
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Soin")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
-     */
-    private $id;
-
-    /**
+     /**
      * @var \Lettrecle
      *
      * @ORM\ManyToOne(targetEntity="Lettrecle")
@@ -40,8 +28,6 @@ class Sointechnique
      * })
      */
     private $idlettrecle;
-
-
 
     /**
      * Set coefficientacte
@@ -64,29 +50,6 @@ class Sointechnique
     public function getCoefficientacte()
     {
         return $this->coefficientacte;
-    }
-
-    /**
-     * Set id
-     *
-     * @param \GSB\PatientsBundle\Entity\Soin $id
-     * @return Sointechnique
-     */
-    public function setId(\GSB\PatientsBundle\Entity\Soin $id)
-    {
-        $this->id = $id;
-    
-        return $this;
-    }
-
-    /**
-     * Get id
-     *
-     * @return \GSB\PatientsBundle\Entity\Soin 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
