@@ -32,7 +32,7 @@ class Patient extends Personne
     private $codepostalpatient;
 
     /**
-     * @var \DateTime
+     * @var date
      *
      * @ORM\Column(name="dateNaissance", type="date", nullable=false)
      */

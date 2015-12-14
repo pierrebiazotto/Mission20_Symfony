@@ -23,18 +23,18 @@ class Demandeentente
 
 
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateDemande", type="string", nullable=false)
+     * @ORM\Column(name="dateDemande", type="date", nullable=false)
      * 
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $datedemande;
 
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateFin", type="string", nullable=false)
+     * @ORM\Column(name="dateFin", type="date", nullable=false)
      */
     private $datefin;
 

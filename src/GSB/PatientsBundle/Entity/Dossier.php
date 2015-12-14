@@ -14,18 +14,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Dossier
 {
     /**
-     * @var id
+     * @var integer
      *
-     * @ORM\Column(name="id", type="id", length=15, nullable=false)
+     * @ORM\Column(name="id", type="integer", length=15, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateEntree", type="string", nullable=false)
+     * @ORM\Column(name="dateEntree", type="date", nullable=false)
      */
     private $dateentree;
 
@@ -37,9 +37,9 @@ class Dossier
     private $motifadmission;
 
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateSortie", type="string", nullable=false)
+     * @ORM\Column(name="dateSortie", type="date", nullable=false)
      */
     private $datesortie;
 
