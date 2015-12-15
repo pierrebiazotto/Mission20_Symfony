@@ -63,7 +63,7 @@ class Dossier
     /**
      * @var \Assure
      *
-     * @ORM\ManyToOne(targetEntity="Assure")
+     * @ORM\ManyToOne(targetEntity="Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="numPersonneAssure", referencedColumnName="id")
      * })

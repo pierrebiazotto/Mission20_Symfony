@@ -101,7 +101,7 @@ class DemandeententeController extends Controller
         $entity = $em->getRepository('GSBPatientsBundle:Demandeentente')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Demandeentente entity.');
+            throw $this->createNotFoundException('La demande d\'entente n\'existe pas.'.$id);
         }
 
         $deleteForm = $this->createDeleteForm($id);

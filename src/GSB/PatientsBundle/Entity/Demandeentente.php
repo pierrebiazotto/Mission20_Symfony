@@ -21,13 +21,10 @@ class Demandeentente
      */
     private $id;
 
-
     /**
      * @var date
      *
      * @ORM\Column(name="dateDemande", type="date", nullable=false)
-     * 
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $datedemande;
 
@@ -54,16 +51,6 @@ class Demandeentente
      * })
      */
     private $numdossier;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->numdossier = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->id = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     
     /**
      * Get id
