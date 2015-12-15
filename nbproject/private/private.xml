@@ -3,8 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/edit.html.twig</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/delete.html.twig</file>
+=======
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/config/routing/dossier.xml</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Soinbase.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/show.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/parameters.yml</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Personne.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Demandeentente.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Dossier.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Patient.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Assure.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Dossier/resultatrecherche.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Controller/DossierController.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Sointechnique.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/config.yml</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Soin.php</file>
+>>>>>>> origin/Patients-Symfony-1.0.0
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Controller/PersonneController.php</file>
         </group>
     </open-files>
