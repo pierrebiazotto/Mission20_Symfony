@@ -1,17 +1,19 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Editer les demande d'entente</h1>
+    <h1>Editer les demandes d'entente</h1>
     <ul>
-    <li>
-    {{ form(edit_form) }}
-    </li>
+    
+        {{ form(edit_form)}}
+        <br>
         <ul class="record_actions">
-            <li>
+            
                 <form action="{{ path('demandeentente')}}" method="post">
                 <input type="submit" value="Retour à la liste" />
                 </form>
-            </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+            
+                <br>{{ form(delete_form) }}
+            
+        </ul>
+   </ul>
 {% endblock %}

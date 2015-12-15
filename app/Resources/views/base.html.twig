@@ -64,6 +64,11 @@
                     </li>
                     <li  {% if onglet == 'Dossier' %}class="current"{% endif %}>
                         <a href="{{path('dossier')}}" data-description="File">Dossier</a>
+                            <ul>
+                                <li>
+                                  <a href="{{path('dossier_find')}}">Recherche</a>
+                                </li>
+                             </ul>
                     </li>
                     <li  {% if onglet == 'Lettre Clé' %}class="current"{% endif %}>
                         <a href="{{path('lettrecle')}}" data-description="Key letter">Lettre Clé</a>
@@ -78,7 +83,7 @@
                         <a href="{{path('personne')}}" data-description="Person">Personne</a>
                         <ul>
                             <li>
-                                <a href="{{path('personne_find')}}">Recherche par nom</a>
+                                <a href="{{path('personne_find')}}">Recherche</a>
                             </li>
                         </ul>
                     </li>

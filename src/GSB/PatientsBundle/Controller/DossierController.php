@@ -228,6 +228,14 @@ class DossierController extends Controller
         // $data = $form->getData();
         // echo $data["name"];
 
+        $d = new Dossier();
+        $e = new Assure();
+        $p = new Patient();
+        $d->setNumpersonneassure($e);
+        $d->setNumpersonnepatient($p);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($d);
+        
         if ($form->isValid()) {
             //je récupère ce qui est passé en paramètres de la recherche
             $data = $form->getData();
@@ -242,6 +250,10 @@ class DossierController extends Controller
                     ->setParameter('id', $valRecherchee)
                     ->getQuery()
                     ->getResult();
+            
+            if (!$entities) {
+                throw $this->createNotFoundException('Impossible de trouver le dossier '.$valRecherchee);
+            }
             
             $em->flush();
            

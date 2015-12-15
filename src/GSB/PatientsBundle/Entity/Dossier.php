@@ -14,18 +14,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Dossier
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="id", type="string", length=15, nullable=false)
+     * @ORM\Column(name="id", type="integer", length=15, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateEntree", type="string", nullable=false)
+     * @ORM\Column(name="dateEntree", type="date", nullable=false)
      */
     private $dateentree;
 
@@ -37,9 +37,9 @@ class Dossier
     private $motifadmission;
 
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateSortie", type="string", nullable=false)
+     * @ORM\Column(name="dateSortie", type="date", nullable=false)
      */
     private $datesortie;
 
@@ -63,7 +63,7 @@ class Dossier
     /**
      * @var \Assure
      *
-     * @ORM\ManyToOne(targetEntity="Assure")
+     * @ORM\ManyToOne(targetEntity="Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="numPersonneAssure", referencedColumnName="id")
      * })
@@ -126,6 +126,7 @@ class Dossier
     public function __construct()
     {
         $this->codesoin = new \Doctrine\Common\Collections\ArrayCollection();
+        
     }
     
 
@@ -414,6 +415,6 @@ class Dossier
     }
     
     public function __toString() {
-        return '';
+        return $this->id." Patient : ". $this->numpersonnepatient;
     }
 }

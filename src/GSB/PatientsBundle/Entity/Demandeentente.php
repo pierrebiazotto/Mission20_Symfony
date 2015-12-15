@@ -21,20 +21,17 @@ class Demandeentente
      */
     private $id;
 
-
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateDemande", type="string", nullable=false)
-     * 
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="dateDemande", type="date", nullable=false)
      */
     private $datedemande;
 
     /**
-     * @var \varchar
+     * @var date
      *
-     * @ORM\Column(name="dateFin", type="string", nullable=false)
+     * @ORM\Column(name="dateFin", type="date", nullable=false)
      */
     private $datefin;
 
@@ -54,15 +51,6 @@ class Demandeentente
      * })
      */
     private $numdossier;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->numdossier = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     
     /**
      * Get id
@@ -102,7 +90,7 @@ class Demandeentente
     /**
      * Get datedemande
      *
-     * @return \varchar 
+     * @return \DateTime 
      */
     public function getDatedemande()
     {
@@ -125,7 +113,7 @@ class Demandeentente
     /**
      * Get datefin
      *
-     * @return \varchar 
+     * @return \DateTime 
      */
     public function getDatefin()
     {

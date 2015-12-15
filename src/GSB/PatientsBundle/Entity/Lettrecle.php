@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Lettrecle
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="id", type="string", length=20, nullable=false)
+     * @ORM\Column(name="id", type="integer", length=20, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */

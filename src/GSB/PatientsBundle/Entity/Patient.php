@@ -6,8 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Patient
- *
- * @ORM\Table(name="Patient")
  * @ORM\Entity
  */
 class Patient extends Personne
@@ -34,26 +32,22 @@ class Patient extends Personne
     private $codepostalpatient;
 
     /**
-     * @var \DateTime
+     * @var date
      *
      * @ORM\Column(name="dateNaissance", type="date", nullable=false)
      */
     private $datenaissance;
 
     /**
-     * @var \Personne
+     * @var \Assure
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Personne")
+     * @ORM\ManyToOne(targetEntity="Assure")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="numAssure", referencedColumnName="id")
      * })
-     */
-    private $id;
-
-
-
+     */    
+    private $numAssure;
+    
     /**
      * Set ruepatient
      *
@@ -145,31 +139,8 @@ class Patient extends Personne
     {
         return $this->datenaissance;
     }
-
-    /**
-     * Set id
-     *
-     * @param \GSB\PatientsBundle\Entity\Personne $id
-     * @return Patient
-     */
-    public function setId(\GSB\PatientsBundle\Entity\Personne $id)
-    {
-        $this->id = $id;
-    
-        return $this;
-    }
-
-    /**
-     * Get id
-     *
-     * @return \GSB\PatientsBundle\Entity\Personne 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     
     public function __toString() {
-        return '';
+        return 'TO DO';
     }
 }
