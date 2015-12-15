@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Recherche d'un patient par dossier </h1>
+    <h1>Recherche d'un dossier par un nom de patient</h1>
 <hr>
-    {{ form(recherche_form) }}
+    {{ form(rechercheDossierParNomPatient_form) }}
 
         <ul class="record_actions">
     <li>
@@ -11,6 +11,5 @@
             Retour à la liste
         </a>
     </li>
-
 </ul>
 {% endblock %}

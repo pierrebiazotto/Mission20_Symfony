@@ -35,8 +35,16 @@
         <requirement key="_method">post|delete</requirement>
     </route>
     
-    <route id="dossier_find" pattern="/find">
+    <route id="dossier_find" pattern="/rdossier">
         <default key="_controller">GSBPatientsBundle:Dossier:creerRechercheDossierForm</default>
     </route>
+    
+    <route id="dossierParPatient_find" pattern="/rpatient">
+        <default key="_controller">GSBPatientsBundle:Dossier:creerRechercheDossierParPatientForm</default>
+    </route>
+    
+    <route id="dossierParNomPatient_find" pattern="/rnompatient">
+        <default key="_controller">GSBPatientsBundle:Dossier:creerRechercheDossierParNomPatientForm</default>
+    </route>    
 
 </routes>

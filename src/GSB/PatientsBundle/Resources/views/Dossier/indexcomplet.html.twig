@@ -14,22 +14,23 @@
             </tr>
         </thead>
         <tbody>
+            {% for entity in entities %}
             <tr>
-               <td class= "center space"><a href="{{ path('dossier_show', { 'id': dossier.id }) }}">{{ dossier.id }}</a></td>
-                <td class= "center space">{% if dossier.dateentree %}{{ dossier.dateentree|date('Y-m-d H:i:s') }}{% endif %}</td>
-               <td class= "center space">{{ dossier.motifadmission }}</td>
-               <td class= "center space">{% if dossier.datesortie %}{{ dossier.datesortie|date('Y-m-d H:i:s') }}{% endif %}</td>
+               <td class= "center space"><a href="{{ path('dossier_show', { 'id': entities.id }) }}">{{ entities.id }}</a></td>
+                <td class= "center space">{% if entities.dateentree %}{{ entities.dateentree|date('Y-m-d H:i:s') }}{% endif %}</td>
+               <td class= "center space">{{ entities.motifadmission }}</td>
+               <td class= "center space">{% if entities.datesortie %}{{ entities.datesortie|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
-               <td class= "center space">{{ dossier.numpersonnepatient.nompersonne }}</td>
+               <td class= "center space">{{ entities.numpersonnepatient.nompersonne }}</td>
                <td>
                 <ul>
                     <li>
-                        <a href="{{ path('dossier_show', { 'id': dossier.id }) }}">Montrer</a>
+                        <a href="{{ path('dossier_show', { 'id': entities.id }) }}">Montrer</a>
                     </li>
                 </ul>
                 </td>
             </tr>
-        
+            {% endfor %}
         </tbody>
     </table>
 

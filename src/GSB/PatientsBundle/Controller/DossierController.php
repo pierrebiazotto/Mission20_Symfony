@@ -25,11 +25,12 @@ class DossierController extends Controller
 
         $entities = $em->getRepository('GSBPatientsBundle:Dossier')->findAll();
 
-        return $this->render('GSBPatientsBundle:Dossier:index.html.twig', array(
+        return $this->render('GSBPatientsBundle:Dossier:indexcomplet.html.twig', array(
             'onglet' => 'undefined',
             'entities' => $entities,
         ));
     }
+    
     /**
      * Creates a new Dossier entity.
      *
@@ -213,7 +214,7 @@ class DossierController extends Controller
     }
     
     // Création recherche Patients par dossier
-     public function creerRechercheDossierFormAction(Request $request) {
+    public function creerRechercheDossierFormAction(Request $request) {
 
         $form = $this->createFormBuilder()
                 ->add('id', 'text')
@@ -228,13 +229,13 @@ class DossierController extends Controller
         // $data = $form->getData();
         // echo $data["name"];
 
-        $d = new Dossier();
+       /* $d = new Dossier();
         $e = new Assure();
         $p = new Patient();
         $d->setNumpersonneassure($e);
         $d->setNumpersonnepatient($p);
         $em = $this->getDoctrine()->getManager();
-        $em->persist($d);
+        $em->persist($d);*/
         
         if ($form->isValid()) {
             //je récupère ce qui est passé en paramètres de la recherche
@@ -257,14 +258,134 @@ class DossierController extends Controller
             
             $em->flush();
            
-            $defaultData = array('onglet' => 'Dossier', 'dossier' => $entities[0], 'patient' => $entities[0]->getNumpersonnepatient() );
-            return $this->render('GSBPatientsBundle:Dossier:resultatrecherche.html.twig', $defaultData);
+            $defaultData = array('onglet' => 'Dossier', 
+                            'entities' => $entities[0], 
+                            'patient' => $entities[0]->getNumpersonnepatient() 
+            );
+            
+            return $this->render('GSBPatientsBundle:Dossier:index.html.twig', $defaultData);
             
         }
 
         return $this->render('GSBPatientsBundle:Dossier:recherche.html.twig', array(
                     'onglet' => 'dossier',
                     'recherche_form' => $form->createView()));
+    }
+    
+    // Création recherche Dossier par numPatient ou nom
+    public function creerRechercheDossierParPatientFormAction(Request $request) {
+
+        $form = $this->createFormBuilder()
+                ->add('numpersonnepatient', 'text', array('label' => 'Numéro de patient'))
+                ->add('recherche', 'submit')
+                ->getForm();
+
+        $form->handleRequest($request);
+
+        // Lorsqu'on n'utilise pas d'objet, les données sont sous forme d'un tableau avec les 
+        // clés correspondant aux différents items du formulaire
+        // exemple : 
+        // $data = $form->getData();
+        // echo $data["name"];
+
+       /* $d = new Dossier();
+        $e = new Assure();
+        $p = new Patient();
+        $d->setNumpersonneassure($e);
+        $d->setNumpersonnepatient($p);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($d);*/
+        
+        if ($form->isValid()) {
+            //je récupère ce qui est passé en paramètres de la recherche
+            $data = $form->getData();
+            $valRecherchee = $data["numpersonnepatient"];
+
+            $em = $this->getDoctrine()->getManager();
+            
+
+            $entities = $em->getRepository('GSBPatientsBundle:Dossier')->createQueryBuilder('d')
+                    ->where('d.numpersonnepatient = :numpersonnepatient')
+                    ->setParameter('numpersonnepatient', $valRecherchee)
+                    ->getQuery()
+                    ->getResult();
+            
+            if (!$entities) {
+                throw $this->createNotFoundException('Impossible de trouver le dossier correspondant au patient '.$valRecherchee);
+            }
+            
+            $em->flush();
+           
+            $defaultData = array('onglet' => 'Dossier', 
+                            'dossier' => $entities[0], 
+                            'patient' => $entities[0]->getNumpersonnepatient() 
+            );
+            
+            return $this->render('GSBPatientsBundle:Dossier:indexcomplet.html.twig', $defaultData);
+            
+        }
+
+        return $this->render('GSBPatientsBundle:Dossier:rechercheDossierParPatient.html.twig', array(
+                    'onglet' => 'dossier',
+                    'rechercheDossierParPatient_form' => $form->createView()));
+    }
+    
+        // Création recherche Dossier par numPatient ou nom
+    public function creerRechercheDossierParNomPatientFormAction(Request $request) {
+
+        $form = $this->createFormBuilder()
+                ->add('nompersonne', 'text', array('label' => 'Nom de patient'))
+                ->add('recherche', 'submit')
+                ->getForm();
+
+        $form->handleRequest($request);
+
+        // Lorsqu'on n'utilise pas d'objet, les données sont sous forme d'un tableau avec les 
+        // clés correspondant aux différents items du formulaire
+        // exemple : 
+        // $data = $form->getData();
+        // echo $data["name"];
+
+       /* $d = new Dossier();
+        $e = new Assure();
+        $p = new Patient();
+        $d->setNumpersonneassure($e);
+        $d->setNumpersonnepatient($p);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($d);*/
+        
+        if ($form->isValid()) {
+            //je récupère ce qui est passé en paramètres de la recherche
+            $data = $form->getData();
+            $valRecherchee = $data["nompersonne"];
+
+            $em = $this->getDoctrine()->getManager();
+            
+
+            $entities = $em->getRepository('GSBPatientsBundle:Dossier')->createQueryBuilder('d')
+                    ->where('d.get(nompersonne) = :nompersonne')
+                    ->setParameter('nompersonne', $valRecherchee)
+                    ->getQuery()
+                    ->getResult();
+            
+            if (!$entities) {
+                throw $this->createNotFoundException('Impossible de trouver le dossier correspondant au nom du patient '.$valRecherchee);
+            }
+            
+            $em->flush();
+           
+            $defaultData = array('onglet' => 'Dossier', 
+                            'dossier' => $entities[0], 
+                            'patient' => $entities[0]->getNompersonne() 
+            );
+            
+            return $this->render('GSBPatientsBundle:Dossier:indexcomplet.html.twig', $defaultData);
+            
+        }
+
+        return $this->render('GSBPatientsBundle:Dossier:rechercheDossierParNomPatient.html.twig', array(
+                    'onglet' => 'dossier',
+                    'rechercheDossierParNomPatient_form' => $form->createView()));
     }
 
 
