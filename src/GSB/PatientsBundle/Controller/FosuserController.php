@@ -4,9 +4,9 @@ namespace GSB\PatientsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use GSB\PatientsBundle\Entity\Fosuser;
+use GSB\PatientsBundle\Entity\User;
 use GSB\PatientsBundle\Form\FosuserType;
+use GSB\PatientsBundle\Form\RegistrationFormType;
 
 /**
  * Fosuser controller.
@@ -23,13 +23,15 @@ class FosuserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GSBPatientsBundle:Fosuser')->findAll();
+        $lesUtilisateurs = $em->getRepository('GSBPatientsBundle:User')->findAll();
 
         return $this->render('GSBPatientsBundle:Fosuser:index.html.twig', array(
             'onglet' => 'undefined',
-            'entities' => $entities,
+            'entities' => $lesUtilisateurs,
         ));
     }
+    
+    
     /**
      * Creates a new Fosuser entity.
      *
@@ -48,44 +50,33 @@ class FosuserController extends Controller
             return $this->redirect($this->generateUrl('fosuser_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('GSBPatientsBundle:Fosuser:new.html.twig', array(
+        return $this->render('GSBPatientsBundle:User:new.html.twig', array(
             'onglet' => 'undefined',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
-    /**
-    * Creates a form to create a Fosuser entity.
-    *
-    * @param Fosuser $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createUserForm(Fosuser $entity)
-    {
-        $form = $this->createForm(new FosuserType(), $entity, array(
-            'action' => $this->generateUrl('fosuser_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
-
+    
     /**
      * Displays a form to create a new Fosuser entity.
      *
      */
     public function newAction()
-    {
-        $entity = new Fosuser();
-        $form   = $this->createCreateForm($entity);
+    {       
+        $utilisateur = new User();
+        
+        $form = $this->createForm(new FosuserType(), $utilisateur, array(
+            'action' => $this->generateUrl('fos_user_profile_new_user'),
+            'method' => 'POST',
+        ));
 
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        //$form = $this->createUserForm($utilisateur);
         return $this->render('GSBPatientsBundle:Fosuser:new.html.twig', array(
             'onglet' => 'undefined',
-            'entity' => $entity,
+            'entity' => $utilisateur,
             'form'   => $form->createView(),
         ));
     }
@@ -98,7 +89,7 @@ class FosuserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('GSBPatientsBundle:Fosuser')->find($id);
+        $entity = $em->getRepository('GSBPatientsBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Fosuser entity.');
@@ -120,13 +111,18 @@ class FosuserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('GSBPatientsBundle:Fosuser')->find($id);
+        $entity = $em->getRepository('GSBPatientsBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Fosuser entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createForm(new FosuserType(), $entity, array(
+            'action' => $this->generateUrl('fos_user_profile_update_user', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $editForm->add('submit', 'submit', array('label' => 'Update'));
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('GSBPatientsBundle:Fosuser:edit.html.twig', array(
@@ -138,24 +134,6 @@ class FosuserController extends Controller
     }
 
     /**
-    * Creates a form to edit a Fosuser entity.
-    *
-    * @param Fosuser $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Fosuser $entity)
-    {
-        $form = $this->createForm(new FosuserType(), $entity, array(
-            'action' => $this->generateUrl('fosuser_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
-    /**
      * Edits an existing Fosuser entity.
      *
      */
@@ -163,7 +141,7 @@ class FosuserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('GSBPatientsBundle:Fosuser')->find($id);
+        $entity = $em->getRepository('GSBPatientsBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Fosuser entity.');
@@ -176,7 +154,7 @@ class FosuserController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('fosuser_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('fos_user_profile_edit_user', array('id' => $id)));
         }
 
         return $this->render('GSBPatientsBundle:Fosuser:edit.html.twig', array(
@@ -197,7 +175,7 @@ class FosuserController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('GSBPatientsBundle:Fosuser')->find($id);
+            $entity = $em->getRepository('GSBPatientsBundle:User')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Fosuser entity.');
@@ -220,10 +198,13 @@ class FosuserController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('fosuser_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('fos_user_profile_delete_user', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
     }
+
+    
+
 }

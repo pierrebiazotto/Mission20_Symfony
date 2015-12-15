@@ -5,12 +5,12 @@ namespace GSB\PatientsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Personne
- *
- * @ORM\Table(name="Personne")
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"Personne" = "Personne", "Patient" = "Patient"})
  */
-class Personne
+class Personne 
 {
     /**
      * @var integer

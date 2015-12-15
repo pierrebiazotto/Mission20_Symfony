@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Affichage du patient du dossier {{ dossier.id }} {{ patient.villepatient }} </h1>
+<hr>
+    
+        <ul class="record_actions">
+    <li>
+        
+        <a href="{{ path('dossier') }}">
+            Retour au dossier
+        </a>
+        {#<a href="{{ path('dossier') }}">
+            Retour à la recherche
+        </a>#}
+    </li>
+
+</ul>
+{% endblock %}

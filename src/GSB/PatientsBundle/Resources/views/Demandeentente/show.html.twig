@@ -6,31 +6,39 @@
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Date de demande</th>
+                <th>Numéro de dossier : </th>
+                <td>{{ entity.numdossier }}</td>
+            </tr>
+            <tr>
+                <th>Date de demande : </th>
                 <td>{{ entity.datedemande }}</td>
             </tr>
             <tr>
-                <th>Date de fin</th>
+                <th>Date de fin : </th>
                 <td>{{ entity.datefin }}</td>
             </tr>
             <tr>
-                <th>Réponse</th>
+                <th>Réponse : </th>
                 <td>{{ entity.reponse }}</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
+    <ul class="record_actions">
+        <li>
+            <form action="{{ path('demandeentente')}}" method="post">
+            <input type="submit" value="Retour à la liste" />
+            </form>
+        </li>
+        <li>
+            <form action="{{ path('demandeentente_edit', { 'id': entity.id }) }}" method="post">
+            <input type="submit" value="Editer" />
+            </form>        
+        </li>
     <li>
-        <a href="{{ path('demandeentente') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('demandeentente_edit', { 'id': entity.numdossier }) }}">
+        <a href="{{ path('demandeentente_edit', { 'id': entity.id }) }}">
             Editer
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

@@ -25,7 +25,7 @@ GSBPatientsBundle_demandeentente:
 GSBPatientsBundle_dossier:
         resource: "@GSBPatientsBundle/Resources/config/routing/dossier.xml"
         prefix:   /dossier
-        
+
 GSBPatientsBundle_lettrecle:
         resource: "@GSBPatientsBundle/Resources/config/routing/lettrecle.xml"
         prefix:   /lettrecle
@@ -68,4 +68,4 @@ gsb_patients_ajoutPatient:
 
 gsb_user_fosuser:
     resource: "@GSBPatientsBundle/Resources/config/routing/fosuser.yml"
-    prefix:   /fosuser
+    prefix:   /util
