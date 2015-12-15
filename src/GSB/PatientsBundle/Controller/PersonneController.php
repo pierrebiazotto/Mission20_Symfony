@@ -98,12 +98,9 @@ class PersonneController extends Controller {
             throw $this->createNotFoundException('Unable to find Personne entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('GSBPatientsBundle:Personne:show.html.twig', array(
                     'onglet' => 'undefined',
-                    'entity' => $entity,
-                    'delete_form' => $deleteForm->createView(),));
+                    'entity' => $entity));
     }
 
     /**
@@ -120,7 +117,6 @@ class PersonneController extends Controller {
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('GSBPatientsBundle:Personne:edit.html.twig', array(
                     'onglet' => 'undefined',
@@ -142,7 +138,7 @@ class PersonneController extends Controller {
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'mettre à jour'));
 
         return $form;
     }
@@ -160,7 +156,6 @@ class PersonneController extends Controller {
             throw $this->createNotFoundException('Unable to find Personne entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -174,7 +169,6 @@ class PersonneController extends Controller {
                     'onglet' => 'undefined',
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
         ));
     }
     
@@ -187,13 +181,19 @@ class PersonneController extends Controller {
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('GSBPatientsBundle:Personne')->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Personne entity.');
-        }
-        $em->remove($entity);
-        $em->flush();
 
-        return $this->redirect($this->generateUrl('personne'));
+        if ($form ->isValid()) {
+            $em->remove($entity);
+            $em->flush();
+            
+            return $this->redirect($this->generateUrl('personne'));
+        }
+
+        return $this->render('GSBPatientsBundle:Personne:delete.html.twig', array(
+                    'onglet' => 'undefined',
+                    'entity' => $entity,
+                    'delete_form' => $form->createView(),
+        ));
     }
     
     /**
@@ -207,11 +207,10 @@ class PersonneController extends Controller {
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl('personne_delete', array('id' => $id)))
                         ->setMethod('DELETE')
-                        ->add('submit', 'submit', array('label' => 'Delete'))
-                        ->getForm();  
+                        ->add('submit', 'submit', array('label' => 'valider'))
+                        ->getForm();
     }
-    
-     
+       
     /**
      * Crée le formulaire de recherche d'une personne.
      *
