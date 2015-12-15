@@ -258,7 +258,7 @@ class CaisseController extends Controller
             $entities = $em->getRepository('GSBPatientsBundle:Caisse')->createQueryBuilder('c')
                     ->where('c.id LIKE :description')
                     ->orWhere('c.nomcaisse LIKE :description')
-                    ->orWhere('c.villecaisse LIKE :description')  
+                    ->orWhere('c.villecaisse LIKE :description')
                     ->orWhere('c.codepostalcaisse LIKE :description')
                     ->setParameter('description', '%'.$valRecherchee.'%')
                     ->getQuery()
