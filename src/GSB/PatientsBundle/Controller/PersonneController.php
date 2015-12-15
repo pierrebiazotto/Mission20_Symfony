@@ -242,6 +242,8 @@ class PersonneController extends Controller {
             //$entities = $em->getRepository('GSBPatientsBundle:Personne')->findBy(array('nompersonne' => $valRecherchee));
             $entities = $em->getRepository('GSBPatientsBundle:Personne')->createQueryBuilder('c')
                     ->where('c.nompersonne LIKE :description')
+                    ->orWhere('c.numss LIKE :description')
+                    ->orWhere('c.prenompersonne LIKE :description')
                     ->setParameter('description', '%' . $valRecherchee . '%')
                     ->getQuery()
                     ->getResult();
