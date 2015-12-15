@@ -63,7 +63,7 @@ class Dossier
     /**
      * @var \Assure
      *
-     * @ORM\ManyToOne(targetEntity="Assure")
+     * @ORM\ManyToOne(targetEntity="Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="numPersonneAssure", referencedColumnName="id")
      * })
@@ -126,6 +126,7 @@ class Dossier
     public function __construct()
     {
         $this->codesoin = new \Doctrine\Common\Collections\ArrayCollection();
+        
     }
     
 
@@ -414,6 +415,6 @@ class Dossier
     }
     
     public function __toString() {
-        return '';
+        return $this->id." Patient : ". $this->numpersonnepatient;
     }
 }

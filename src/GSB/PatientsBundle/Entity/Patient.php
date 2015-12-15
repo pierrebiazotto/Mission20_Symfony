@@ -141,6 +141,6 @@ class Patient extends Personne
     }
     
     public function __toString() {
-        return '';
+        return 'TO DO';
     }
 }

@@ -3,6 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Form/DossierType.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Demandeentente/index.html.twig</file>
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -15,18 +19,18 @@
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/config/routing/dossier.xml</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Soinbase.php</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/show.html.twig</file>
+>>>>>>> 80d2b873a982bf2708431c097df51c7141038cab
             <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/parameters.yml</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Personne.php</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Demandeentente.php</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Dossier.php</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Patient.php</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Assure.php</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Dossier/resultatrecherche.html.twig</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Controller/DossierController.php</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Sointechnique.php</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/config.yml</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Soin.php</file>
-            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Controller/PersonneController.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Form/DemandeententeType.php</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Demandeentente/edit.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Demandeentente/new.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Dossier/index.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Demandeentente/show.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/parameters.yml.dist</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Dossier/edit.html.twig</file>
+            <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Controller/DemandeententeController.php</file>
         </group>
     </open-files>
 </project-private>

@@ -3,13 +3,14 @@
 {% block body -%}
     <h1>Création de demande d'entente </h1>
 
-    <li>{{ form(form) }}</li>
-
+    <ul>
+    {{ form(form) }}
+        <br>
         <ul class="record_actions">
-    <li>
+            
         <form action="{{ path('demandeentente')}}" method="post">
             <input type="submit" value="Retour à la liste" />
         </form>
-    </li>
+        </ul>
 </ul>
 {% endblock %}
