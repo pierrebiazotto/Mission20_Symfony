@@ -6,10 +6,9 @@
     {{ form(edit_form) }}
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('personne') }}">
-            Retour à la liste
-        </a>
-    </li>
+
+        <form action="{{ path('personne') }}" method="post">
+            <input type="submit" value="retour"/>
+        </form>
 </ul>
 {% endblock %}

@@ -2,7 +2,7 @@
 
 namespace GSB\PatientsBundle\Entity;
 
-use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,12 +11,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-  /**
-   * @ORM\Id
-   * @ORM\Column(type="integer")
-   * @ORM\GeneratedValue(strategy="AUTO")
-   */
-  protected $id;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id; 
   
-  
+    public function getExpiresat()
+    {
+        return $this->expiresAt;
+    }
+    
+    public function getCredentialsExpireAt()
+    {
+        return $this->credentialsExpireAt;
+    }
+    
+    
 }

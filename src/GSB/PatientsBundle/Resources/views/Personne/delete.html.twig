@@ -3,13 +3,32 @@
 {% block body -%}
     <h1>Supprimer une personne</h1>
     <hr>
+    <h3>voulez-vous vraiment suprimer ?</h3>
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th class="space">Nom</th>
+                <td>{{ entity.nompersonne }}</td>
+            </tr>
+            <tr>
+                <th class="space">Prenom</th>
+                <td>{{ entity.prenompersonne }}</td>
+            </tr>
+            <tr>
+                <th class="space">Numss</th>
+                <td>{{ entity.numss }}</td>
+            </tr>
+        </tbody>
+    </table>
     {{ form(delete_form) }}
+        <ul class="record_actions"></ul>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('personne') }}">
-            Retour à la liste
-        </a>
-    </li>
-</ul>
+        <form action="{{ path('personne') }}" method="post">
+            <input type="submit" value="retour" />
+        </form>
+
 {% endblock %}

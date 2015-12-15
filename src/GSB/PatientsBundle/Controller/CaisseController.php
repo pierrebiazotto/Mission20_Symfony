@@ -14,22 +14,26 @@ use GSB\PatientsBundle\Form\CaisseType;
  */
 class CaisseController extends Controller
 {
-
+    
     /**
      * Lists all Caisse entities.
      *
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GSBPatientsBundle:Caisse')->findAll();
-
-        return $this->render('GSBPatientsBundle:Caisse:index.html.twig', array(
-            'onglet' => 'undefined',
-            'entities' => $entities,
-        ));
+            $entities = $em->getRepository('GSBPatientsBundle:Caisse')->findAll();
+            
+            $lesParametres = array(
+                'onglet' => 'undefined',
+                'entities' => $entities,
+            );
+            
+            return $this->render('GSBPatientsBundle:Caisse:index.html.twig', $lesParametres);
     }
+    
+    
     /**
      * Creates a new Caisse entity.
      *
@@ -257,6 +261,9 @@ class CaisseController extends Controller
             
             $entities = $em->getRepository('GSBPatientsBundle:Caisse')->createQueryBuilder('c')
                     ->where('c.id LIKE :description')
+                    ->orWhere('c.nomcaisse LIKE :description')
+                    ->orWhere('c.villecaisse LIKE :description')
+                    ->orWhere('c.codepostalcaisse LIKE :description')
                     ->setParameter('description', '%'.$valRecherchee.'%')
                     ->getQuery()
                     ->getResult();

@@ -10,6 +10,10 @@ GSBPatientsBundle_assure:
         resource: "@GSBPatientsBundle/Resources/config/routing/assure.xml"
         prefix:   /assure
         
+gsb_patients_ajoutUser:
+    pattern:  /register
+    defaults: { _controller: GSBPatientsBundle:Fosuser:createEdit }
+        
 GSBPatientsBundle_caisse:
         resource: "@GSBPatientsBundle/Resources/config/routing/caisse.xml"
         prefix:   /caisse
@@ -21,7 +25,7 @@ GSBPatientsBundle_demandeentente:
 GSBPatientsBundle_dossier:
         resource: "@GSBPatientsBundle/Resources/config/routing/dossier.xml"
         prefix:   /dossier
-        
+
 GSBPatientsBundle_lettrecle:
         resource: "@GSBPatientsBundle/Resources/config/routing/lettrecle.xml"
         prefix:   /lettrecle
@@ -64,4 +68,4 @@ gsb_patients_ajoutPatient:
 
 gsb_user_fosuser:
     resource: "@GSBPatientsBundle/Resources/config/routing/fosuser.yml"
-    prefix:   /fosuser
+    prefix:   /util

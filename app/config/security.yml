@@ -11,8 +11,8 @@ security:
             memory:
                 users:
                     medecin: { password: medecinpass, roles: [ 'ROLE_MEDECIN'] }
-                    secretaire: { password: secretairepass, roles: [ 'ROLE_SECRETAIRE'] }
-                    #user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    secretaire: { password: secretairepass, roles: ['ROLE_SECRETAIRE'] }
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
                     
         main:
@@ -55,6 +55,13 @@ security:
                 
     access_control:
         - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
+        #- { path: ^/caisse, roles: ROLE_ADMIN }
+        #- { path: ^/caisse, roles: ROLE_ADMIN }
+        #- { path: ^/caisse, roles: ROLE_ADMIN }
+        #- { path: ^/caisse, roles: ROLE_ADMIN }
+        #- { path: ^/caisse, roles: ROLE_ADMIN }
+        #- { path: ^/caisse, roles: ROLE_ADMIN }
+        #- { path: ^/caisse, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
 
     encoders:

@@ -11,11 +11,11 @@
             </tr>
             <tr>
                 <th>Date de demande : </th>
-                <td>{{ entity.datedemande }}</td>
+                <td>{{ entity.datedemande|date('Y-m-d') }}</td>
             </tr>
             <tr>
                 <th>Date de fin : </th>
-                <td>{{ entity.datefin }}</td>
+                <td>{{ entity.datefin|date('Y-m-d') }}</td>
             </tr>
             <tr>
                 <th>Réponse : </th>
@@ -23,22 +23,20 @@
             </tr>
         </tbody>
     </table>
-
+            
     <ul class="record_actions">
-        <li>
+        
             <form action="{{ path('demandeentente')}}" method="post">
             <input type="submit" value="Retour à la liste" />
             </form>
-        </li>
-        <li>
+        <br>
+        
             <form action="{{ path('demandeentente_edit', { 'id': entity.id }) }}" method="post">
             <input type="submit" value="Editer" />
             </form>        
-        </li>
-    <li>
-        <a href="{{ path('demandeentente_edit', { 'id': entity.id }) }}">
-            Editer
-        </a>
-    </li>
-</ul>
+        <br>
+    
+        {{ form(delete_form) }}
+   
+    </ul>
 {% endblock %}

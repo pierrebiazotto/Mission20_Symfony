@@ -5,3 +5,9 @@ services:
 #    gsb_patients.example:
 #        class: %gsb_patients.example.class%
 #        arguments: [@service_id, "plain_va
+
+    fos_user.registration.form.type:
+        class: GSB\PatientsBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fos_user_registration }
