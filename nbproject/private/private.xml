@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/edit.html.twig</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Resources/views/Personne/delete.html.twig</file>
 =======
@@ -21,7 +26,6 @@
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Sointechnique.php</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/app/config/config.yml</file>
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Entity/Soin.php</file>
->>>>>>> origin/Patients-Symfony-1.0.0
             <file>file:/home/adgsb/public_html/Patients-Symfony/src/GSB/PatientsBundle/Controller/PersonneController.php</file>
         </group>
     </open-files>
