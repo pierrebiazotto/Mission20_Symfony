@@ -3,13 +3,12 @@
 {% block body -%}
     <h1>Supprimer une personne</h1>
     <hr>
+    <h3>voulez-vous vraiment suprimer ?</h3>
     {{ form(delete_form) }}
+        <ul class="record_actions"></ul>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('personne') }}">
-            Retour à la liste
-        </a>
-    </li>
-</ul>
+        <form action="{{ path('personne') }}" method="post">
+            <input type="submit" value="retour" />
+        </form>
+
 {% endblock %}
